@@ -1,0 +1,36 @@
+<h2 class="page-header">Add Product</h2>
+<form (submit)="onProductSubmit()">
+  <div class="form-group">
+    <label>Name</label>
+    <input type="text" [(ngModel)]="name" name="name" class="form-control">
+  </div>
+
+  <!--<div class="form-group">
+    <label>Image Source</label>
+    <input type="text" [(ngModel)]="img" name="img" class="form-control">
+  </div>-->
+
+  <div class="form-group">
+  <label class="image-upload-container btn btn-bwm">
+    <span>Select Image</span>
+    <input #imageInput
+           type="file"
+           accept="image/*"
+           (change)="processFile(imageInput)">
+  </label>
+  </div>
+
+
+  <div class="form-group">
+    <label>Description</label>
+    <input type="text" [(ngModel)]="description" name="description" class="form-control">
+  </div>
+  <div class="form-group">
+    <label>Category</label>
+      <select type="text" [(ngModel)]="Catag" name="Catag" class="form-control">
+        <option value="" selected> Select Category Type </option>
+        <option *ngFor="let catType of catTypes" [value]="catType">{{catType}}</option>
+      </select>
+  </div>
+  <input type="submit" class="btn btn-primary" value="Submit">
+</form>
